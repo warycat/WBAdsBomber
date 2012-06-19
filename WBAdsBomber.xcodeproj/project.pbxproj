@@ -43,24 +43,24 @@
 		460EE1651590406D009F8ACA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		460EE1671590406D009F8ACA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		460EE1691590406D009F8ACA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		460EE16D1590406D009F8ACA /* WBAdsBomber-Info.plist */ = {isa = PBXFileReference; path = "WBAdsBomber-Info.plist"; sourceTree = "<group>"; };
+		460EE16D1590406D009F8ACA /* WBAdsBomber-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WBAdsBomber-Info.plist"; sourceTree = "<group>"; };
 		460EE16F1590406D009F8ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		460EE1711590406D009F8ACA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		460EE1731590406D009F8ACA /* WBAdsBomber-Prefix.pch */ = {isa = PBXFileReference; path = "WBAdsBomber-Prefix.pch"; sourceTree = "<group>"; };
-		460EE1741590406D009F8ACA /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		460EE1731590406D009F8ACA /* WBAdsBomber-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WBAdsBomber-Prefix.pch"; sourceTree = "<group>"; };
+		460EE1741590406D009F8ACA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		460EE1751590406D009F8ACA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		460EE1781590406D009F8ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		460EE17B1590406D009F8ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		460EE17E1590406D009F8ACA /* WBAdsBomber.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WBAdsBomber.xcdatamodel; sourceTree = "<group>"; };
-		460EE1801590406D009F8ACA /* MainViewController.h */ = {isa = PBXFileReference; path = MainViewController.h; sourceTree = "<group>"; };
+		460EE1801590406D009F8ACA /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		460EE1811590406D009F8ACA /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		460EE1831590406D009F8ACA /* FlipsideViewController.h */ = {isa = PBXFileReference; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		460EE1831590406D009F8ACA /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
 		460EE1841590406D009F8ACA /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
 		460EE18B1590406D009F8ACA /* WBAdsBomberTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WBAdsBomberTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		460EE18C1590406D009F8ACA /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		460EE1951590406D009F8ACA /* WBAdsBomberTests-Info.plist */ = {isa = PBXFileReference; path = "WBAdsBomberTests-Info.plist"; sourceTree = "<group>"; };
+		460EE1951590406D009F8ACA /* WBAdsBomberTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WBAdsBomberTests-Info.plist"; sourceTree = "<group>"; };
 		460EE1971590406D009F8ACA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		460EE1991590406D009F8ACA /* WBAdsBomberTests.h */ = {isa = PBXFileReference; path = WBAdsBomberTests.h; sourceTree = "<group>"; };
+		460EE1991590406D009F8ACA /* WBAdsBomberTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBAdsBomberTests.h; sourceTree = "<group>"; };
 		460EE19A1590406D009F8ACA /* WBAdsBomberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBAdsBomberTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
