@@ -1,33 +1,25 @@
 //
-//  APIKEYViewController.m
+//  CreateSquadronViewController.m
 //  WBAdsBomber
 //
-//  Created by Larry on 6/19/12.
+//  Created by Larry on 6/20/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "APIKEYViewController.h"
+#import "CreateSquadronViewController.h"
 
-
-
-@interface APIKEYViewController ()
+@interface CreateSquadronViewController ()
 
 @end
 
-@implementation APIKEYViewController
-@synthesize delegate = _delegate;
-@synthesize idTextField;
+@implementation CreateSquadronViewController
 @synthesize keyTextField;
+@synthesize secretTextField;
 
-- (IBAction)done:(id)sender {
-    NSString *idText = self.idTextField.text;
-    NSString *keyText = self.keyTextField.text;
-    if ([idText isEqualToString:@""] || [keyText isEqualToString:@""]) {
-        return;
-    }
-    NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:idText,@"id",keyText,@"key", nil];
-    [self.delegate addkey:result];
-    [self.navigationController popViewControllerAnimated:YES];
+- (IBAction)clickDone:(id)sender {
+    NSLog(@"%@",self.keyTextField.text);
+    NSLog(@"%@",self.keyTextField.text);
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -41,16 +33,14 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"DidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
 {
-    NSLog(@"DidUnload");
-    [self setIdTextField:nil];
     [self setKeyTextField:nil];
+    [self setSecretTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -59,6 +49,5 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
 
 @end

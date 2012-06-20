@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="10K549" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="chq-GX-k0V">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="chq-GX-k0V">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--Table View Controller - Squadron-->
         <scene sceneID="mBT-do-pkz">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwn-93-qzH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -28,7 +30,7 @@
                     <navigationItem key="navigationItem" title="Squadron" id="89c-ID-9jv">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="h2f-jN-Skk">
                             <connections>
-                                <segue destination="d2P-5Y-aYd" kind="push" id="srR-jJ-Li8"/>
+                                <segue destination="Ysh-ah-iiv" kind="push" id="I0q-Ol-mk2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -36,21 +38,22 @@
             </objects>
             <point key="canvasLocation" x="1133" y="-226"/>
         </scene>
-        <scene sceneID="5LE-LL-nHy">
+        <!--Create Squadron View Controller-->
+        <scene sceneID="o8l-yw-WVM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JwM-Gu-V33" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="d2P-5Y-aYd" customClass="APIKEYViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="R7p-qz-mvj">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NNQ-57-8EL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Ysh-ah-iiv" customClass="CreateSquadronViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Clt-Ry-XND">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="appKey" minimumFontSize="17" id="0Zo-O0-h8c">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="appKey" minimumFontSize="17" id="kjH-zN-rlg">
                                 <rect key="frame" x="20" y="20" width="280" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="appSecret" minimumFontSize="17" id="XPY-VX-DKF">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="appSecret" minimumFontSize="17" id="eNe-sX-gX7">
                                 <rect key="frame" x="20" y="59" width="280" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -59,21 +62,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Create" id="R5w-ca-eNW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jpr-h7-5gl">
+                    <navigationItem key="navigationItem" id="bWE-oF-9l2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="GQ0-fS-VY5">
                             <connections>
-                                <action selector="done:" destination="d2P-5Y-aYd" id="T47-9h-1IQ"/>
+                                <action selector="clickDone:" destination="Ysh-ah-iiv" id="ayE-eV-zIn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="idTextField" destination="0Zo-O0-h8c" id="y4R-06-gma"/>
-                        <outlet property="keyTextField" destination="XPY-VX-DKF" id="7p0-CS-pWF"/>
+                        <outlet property="keyTextField" destination="kjH-zN-rlg" id="tuI-f9-ffV"/>
+                        <outlet property="secretTextField" destination="eNe-sX-gX7" id="IGT-05-hHh"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1556" y="-226"/>
+            <point key="canvasLocation" x="1550" y="-222"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="mi0-YP-YwE">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDI-cQ-QvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -91,6 +95,7 @@
             </objects>
             <point key="canvasLocation" x="715" y="-226"/>
         </scene>
+        <!--Main View Controller - WBAdsBomber-->
         <scene sceneID="5">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -122,6 +127,7 @@
             </objects>
             <point key="canvasLocation" x="1133" y="370"/>
         </scene>
+        <!--Flipside View Controller-->
         <scene sceneID="9">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8" sceneMemberID="firstResponder"/>
@@ -150,6 +156,7 @@
             </objects>
             <point key="canvasLocation" x="1556" y="370"/>
         </scene>
+        <!--Navigation Controller-->
         <scene sceneID="0PV-HB-V8h">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smd-3D-vW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -170,6 +177,7 @@
             </objects>
             <point key="canvasLocation" x="699" y="370"/>
         </scene>
+        <!--Tab Bar Controller-->
         <scene sceneID="tay-8b-q5P">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CiQ-E0-RD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,11 +198,11 @@
         </scene>
     </scenes>
     <classes>
-        <class className="APIKEYViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/APIKEYViewController.h"/>
+        <class className="CreateSquadronViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateSquadronViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="idTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="keyTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="secretTextField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="FlipsideViewController" superclassName="UIViewController">

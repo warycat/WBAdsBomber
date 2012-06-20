@@ -56,7 +56,7 @@
 		460EE1FD1590447D009F8ACA /* WBSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE1DC1590447D009F8ACA /* WBSendView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		460EE1FE1590447D009F8ACA /* WBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE1DE1590447D009F8ACA /* WBUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		460EE200159046FF009F8ACA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 460EE1FF159046FF009F8ACA /* Security.framework */; };
-		460EE20615906254009F8ACA /* APIKEYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE20515906254009F8ACA /* APIKEYViewController.m */; };
+		460EE20A15915F87009F8ACA /* CreateSquadronViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE20915915F86009F8ACA /* CreateSquadronViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,8 +145,8 @@
 		460EE1DF1590447D009F8ACA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		460EE1E01590447D009F8ACA /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		460EE1FF159046FF009F8ACA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		460EE20415906254009F8ACA /* APIKEYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKEYViewController.h; sourceTree = "<group>"; };
-		460EE20515906254009F8ACA /* APIKEYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIKEYViewController.m; sourceTree = "<group>"; };
+		460EE20815915F85009F8ACA /* CreateSquadronViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateSquadronViewController.h; sourceTree = "<group>"; };
+		460EE20915915F86009F8ACA /* CreateSquadronViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateSquadronViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,8 +222,8 @@
 				460EE1841590406D009F8ACA /* FlipsideViewController.m */,
 				460EE17D1590406D009F8ACA /* WBAdsBomber.xcdatamodeld */,
 				460EE16C1590406D009F8ACA /* Supporting Files */,
-				460EE20415906254009F8ACA /* APIKEYViewController.h */,
-				460EE20515906254009F8ACA /* APIKEYViewController.m */,
+				460EE20815915F85009F8ACA /* CreateSquadronViewController.h */,
+				460EE20915915F86009F8ACA /* CreateSquadronViewController.m */,
 			);
 			path = WBAdsBomber;
 			sourceTree = "<group>";
@@ -497,7 +497,7 @@
 				460EE1FC1590447D009F8ACA /* WBRequest.m in Sources */,
 				460EE1FD1590447D009F8ACA /* WBSendView.m in Sources */,
 				460EE1FE1590447D009F8ACA /* WBUtil.m in Sources */,
-				460EE20615906254009F8ACA /* APIKEYViewController.m in Sources */,
+				460EE20A15915F87009F8ACA /* CreateSquadronViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
