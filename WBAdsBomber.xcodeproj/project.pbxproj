@@ -57,6 +57,13 @@
 		460EE1FE1590447D009F8ACA /* WBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE1DE1590447D009F8ACA /* WBUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		460EE200159046FF009F8ACA /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 460EE1FF159046FF009F8ACA /* Security.framework */; };
 		460EE20A15915F87009F8ACA /* CreateSquadronViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE20915915F86009F8ACA /* CreateSquadronViewController.m */; };
+		460EE20D15916498009F8ACA /* SquadronsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE20C15916497009F8ACA /* SquadronsViewController.m */; };
+		460EE210159170DB009F8ACA /* Squadron.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE20F159170DA009F8ACA /* Squadron.m */; };
+		460EE21B1591A19F009F8ACA /* BombersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE21A1591A19D009F8ACA /* BombersViewController.m */; };
+		460EE21E1591A30F009F8ACA /* FetchedResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE21D1591A30E009F8ACA /* FetchedResultsViewController.m */; };
+		46B14759159460A9002B0697 /* Bomber.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B14758159460A9002B0697 /* Bomber.m */; };
+		46B1475C1594703B002B0697 /* YYWBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B1475B1594703B002B0697 /* YYWBEngine.m */; };
+		46B1475F1594A610002B0697 /* TargetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B1475E1594A610002B0697 /* TargetsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +154,20 @@
 		460EE1FF159046FF009F8ACA /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		460EE20815915F85009F8ACA /* CreateSquadronViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateSquadronViewController.h; sourceTree = "<group>"; };
 		460EE20915915F86009F8ACA /* CreateSquadronViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateSquadronViewController.m; sourceTree = "<group>"; };
+		460EE20B15916497009F8ACA /* SquadronsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquadronsViewController.h; sourceTree = "<group>"; };
+		460EE20C15916497009F8ACA /* SquadronsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquadronsViewController.m; sourceTree = "<group>"; };
+		460EE20E159170D9009F8ACA /* Squadron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Squadron.h; sourceTree = "<group>"; };
+		460EE20F159170DA009F8ACA /* Squadron.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Squadron.m; sourceTree = "<group>"; };
+		460EE2191591A19C009F8ACA /* BombersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BombersViewController.h; sourceTree = "<group>"; };
+		460EE21A1591A19D009F8ACA /* BombersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BombersViewController.m; sourceTree = "<group>"; };
+		460EE21C1591A30D009F8ACA /* FetchedResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchedResultsViewController.h; sourceTree = "<group>"; };
+		460EE21D1591A30E009F8ACA /* FetchedResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsViewController.m; sourceTree = "<group>"; };
+		46B14757159460A8002B0697 /* Bomber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bomber.h; sourceTree = "<group>"; };
+		46B14758159460A9002B0697 /* Bomber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bomber.m; sourceTree = "<group>"; };
+		46B1475A1594703B002B0697 /* YYWBEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWBEngine.h; sourceTree = "<group>"; };
+		46B1475B1594703B002B0697 /* YYWBEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWBEngine.m; sourceTree = "<group>"; };
+		46B1475D1594A610002B0697 /* TargetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetsViewController.h; sourceTree = "<group>"; };
+		46B1475E1594A610002B0697 /* TargetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +232,22 @@
 		460EE16B1590406D009F8ACA /* WBAdsBomber */ = {
 			isa = PBXGroup;
 			children = (
+				46B1475A1594703B002B0697 /* YYWBEngine.h */,
+				46B1475B1594703B002B0697 /* YYWBEngine.m */,
+				46B14757159460A8002B0697 /* Bomber.h */,
+				46B14758159460A9002B0697 /* Bomber.m */,
+				460EE20E159170D9009F8ACA /* Squadron.h */,
+				460EE20F159170DA009F8ACA /* Squadron.m */,
+				460EE20815915F85009F8ACA /* CreateSquadronViewController.h */,
+				460EE20915915F86009F8ACA /* CreateSquadronViewController.m */,
+				460EE21C1591A30D009F8ACA /* FetchedResultsViewController.h */,
+				460EE21D1591A30E009F8ACA /* FetchedResultsViewController.m */,
+				46B1475D1594A610002B0697 /* TargetsViewController.h */,
+				46B1475E1594A610002B0697 /* TargetsViewController.m */,
+				460EE2191591A19C009F8ACA /* BombersViewController.h */,
+				460EE21A1591A19D009F8ACA /* BombersViewController.m */,
+				460EE20B15916497009F8ACA /* SquadronsViewController.h */,
+				460EE20C15916497009F8ACA /* SquadronsViewController.m */,
 				460EE1A81590447D009F8ACA /* SinaWeiBoSDK */,
 				460EE1741590406D009F8ACA /* AppDelegate.h */,
 				460EE1751590406D009F8ACA /* AppDelegate.m */,
@@ -222,8 +259,6 @@
 				460EE1841590406D009F8ACA /* FlipsideViewController.m */,
 				460EE17D1590406D009F8ACA /* WBAdsBomber.xcdatamodeld */,
 				460EE16C1590406D009F8ACA /* Supporting Files */,
-				460EE20815915F85009F8ACA /* CreateSquadronViewController.h */,
-				460EE20915915F86009F8ACA /* CreateSquadronViewController.m */,
 			);
 			path = WBAdsBomber;
 			sourceTree = "<group>";
@@ -498,6 +533,13 @@
 				460EE1FD1590447D009F8ACA /* WBSendView.m in Sources */,
 				460EE1FE1590447D009F8ACA /* WBUtil.m in Sources */,
 				460EE20A15915F87009F8ACA /* CreateSquadronViewController.m in Sources */,
+				460EE20D15916498009F8ACA /* SquadronsViewController.m in Sources */,
+				460EE210159170DB009F8ACA /* Squadron.m in Sources */,
+				460EE21B1591A19F009F8ACA /* BombersViewController.m in Sources */,
+				460EE21E1591A30F009F8ACA /* FetchedResultsViewController.m in Sources */,
+				46B14759159460A9002B0697 /* Bomber.m in Sources */,
+				46B1475C1594703B002B0697 /* YYWBEngine.m in Sources */,
+				46B1475F1594A610002B0697 /* TargetsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,6 +729,7 @@
 				460EE1A01590406D009F8ACA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		460EE1A11590406D009F8ACA /* Build configuration list for PBXNativeTarget "WBAdsBomberTests" */ = {
 			isa = XCConfigurationList;
@@ -695,6 +738,7 @@
 				460EE1A31590406D009F8ACA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -13,13 +13,13 @@
 @end
 
 @implementation CreateSquadronViewController
+@synthesize delegate = _delegate;
 @synthesize keyTextField;
 @synthesize secretTextField;
 
 - (IBAction)clickDone:(id)sender {
-    NSLog(@"%@",self.keyTextField.text);
-    NSLog(@"%@",self.keyTextField.text);
-    
+    [self.delegate createSquadronWithKey:self.keyTextField.text andSecret:self.secretTextField.text];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
