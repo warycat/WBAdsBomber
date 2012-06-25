@@ -7,16 +7,31 @@
 //
 
 #import "TargetsViewController.h"
+#import "Victim.h"
+#import "AppDelegate.h"
 
 @interface TargetsViewController ()
-
+@property (strong, nonatomic) UITableViewCell *selectedCell;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation TargetsViewController
 
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize selectedCell = _selectedCell;
 @synthesize engine = _engine;
 @synthesize targets = _targets;
+@synthesize bomber = _bomber;
 
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (_managedObjectContext) {
+        return _managedObjectContext;
+    }
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    _managedObjectContext = appDelegate.managedObjectContext;
+    return _managedObjectContext;
+}
 
 - (void)viewDidLoad
 {
@@ -74,14 +89,34 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+{   
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    self.selectedCell.accessoryType = UITableViewCellAccessoryNone;
+    self.selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    self.selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    NSDictionary *target = [self.targets objectAtIndex:indexPath.row];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Victim"];
+    NSString *uid = [target objectForKey:@"idstr"];
+    NSString *name = [target objectForKey:@"name"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID == %@",uid];
+    fetchRequest.predicate = predicate;
+    NSError *error = nil;
+    NSArray *fetchedResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"%@",error);
+        abort();
+    }
+    if ([fetchedResults lastObject]) {
+        return;
+    }
+    Victim *victim = [NSEntityDescription insertNewObjectForEntityForName:@"Victim" inManagedObjectContext:self.managedObjectContext];
+    victim.name = name;
+    victim.userID = uid;
+    victim.struck = self.bomber;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
 }
 #pragma mark - WBEngin delegate
 
@@ -121,7 +156,7 @@
 // you may receive the following four callbacks.
 - (void)engineNotAuthorized:(WBEngine *)engine
 {
-    NSLog(@"engineNotAuthorized this show never be called");
+    NSLog(@"engineNotAuthorized this should never be called");
 }
 
 - (void)engineAuthorizeExpired:(WBEngine *)engine

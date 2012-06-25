@@ -13,6 +13,7 @@
 @end
 
 @interface YYWBEngine : WBEngine
+
 @property (weak, nonatomic) id<WBDataDelegate> dataDelegate;
 - (void)setAuthorizeDataWithAccessToken:(NSString *)theAccessToken userID:(NSString *)theUserID expiresAt:(NSDate *)expiration;
 @end

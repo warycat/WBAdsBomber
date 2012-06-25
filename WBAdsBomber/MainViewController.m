@@ -7,6 +7,8 @@
 //
 
 #import "MainViewController.h"
+#import "AppDelegate.h"
+#import "Victim.h"
 
 @interface MainViewController ()
 
@@ -14,8 +16,53 @@
 
 @implementation MainViewController
 
+@synthesize imagePickerController = _imagePickerController;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize flipsidePopoverController = _flipsidePopoverController;
+@synthesize imageView = _imageView;
+
+- (IBAction)selectImage:(id)sender {
+    [self presentModalViewController:self.imagePickerController animated:YES];
+    
+}
+
+- (IBAction)deleteVictims:(id)sender {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Victim"];
+    NSError *error = nil;
+    [fetchRequest setIncludesPropertyValues:NO];
+    NSArray *fetchedResults = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"%@",error);
+        abort();
+    }
+    for (Victim *victim in fetchedResults) {
+        [self.managedObjectContext deleteObject:victim];
+    }
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+}
+
+- (UIImagePickerController *)imagePickerController
+{
+    if (_imagePickerController) {
+        return _imagePickerController;
+    }
+    _imagePickerController = [[UIImagePickerController alloc]init];
+    _imagePickerController.delegate = self;
+    return _imagePickerController;
+}
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (_managedObjectContext) {
+        return _managedObjectContext;
+    }
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    _managedObjectContext = appDelegate.managedObjectContext;
+    return _managedObjectContext;
+}
 
 - (void)viewDidLoad
 {
@@ -25,6 +72,7 @@
 
 - (void)viewDidUnload
 {
+    [self setImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

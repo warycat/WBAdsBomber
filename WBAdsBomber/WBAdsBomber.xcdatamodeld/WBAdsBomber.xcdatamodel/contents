@@ -5,6 +5,7 @@
         <attribute name="expiration" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="squadron" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Squadron" inverseName="bombers" inverseEntity="Squadron" syncable="YES"/>
+        <relationship name="striking" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Victim" inverseName="struck" inverseEntity="Victim" syncable="YES"/>
     </entity>
     <entity name="Squadron" representedClassName="Squadron" syncable="YES">
         <attribute name="appKey" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,8 +13,15 @@
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="bombers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bomber" inverseName="squadron" inverseEntity="Bomber" syncable="YES"/>
     </entity>
+    <entity name="Victim" representedClassName="Victim" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="struck" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Bomber" inverseName="striking" inverseEntity="Bomber" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Bomber" positionX="421" positionY="237" width="128" height="105"/>
+        <element name="Bomber" positionX="421" positionY="237" width="128" height="120"/>
         <element name="Squadron" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Victim" positionX="718" positionY="396" width="128" height="105"/>
     </elements>
 </model>

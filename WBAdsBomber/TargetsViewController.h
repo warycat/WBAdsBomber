@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "YYWBEngine.h"
+#import "Bomber.h"
 
 @interface TargetsViewController : UITableViewController <WBEngineDelegate,WBDataDelegate>
 
 @property (strong, nonatomic)YYWBEngine *engine;
 @property (strong, nonatomic)NSArray *targets;
+@property (strong, nonatomic)Bomber *bomber;
 
 @end

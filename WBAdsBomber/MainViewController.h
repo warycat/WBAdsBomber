@@ -8,10 +8,15 @@
 
 #import "FlipsideViewController.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIPopoverControllerDelegate>
+@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIPopoverControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
+
+@property (strong, nonatomic) UIImagePickerController *imagePickerController;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 
 @end

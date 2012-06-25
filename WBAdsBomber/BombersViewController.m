@@ -19,7 +19,11 @@
 
 @synthesize squadron = _squadron;
 @synthesize engine = _engine;
+@synthesize fetchedResultsController = _fetchedResultsController;
 
+- (IBAction)addBomber:(id)sender {
+    [self.engine logIn];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -32,37 +36,7 @@
         TargetsViewController *targetsViewController = segue.destinationViewController;
         engine.delegate = segue.destinationViewController;
         targetsViewController.engine = engine;
-    }
-}
-
-- (void)saveWithAccessToken:(NSString *)theAccessToken userID:(NSString *)theUserID expiresAt:(NSDate *)expiration
-{
-    NSLog(@"save");
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Bomber"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID == %@",theUserID];
-    fetchRequest.predicate = predicate;
-    NSError *error = nil;
-    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (error) {
-        NSLog(@"%@",error);
-        abort();
-    }
-    Bomber *bomber = nil;
-    if ((bomber = [results lastObject])) {
-        bomber.accessToken = theAccessToken;
-        bomber.userID = theUserID;
-        bomber.expiration = expiration;
-    }else {
-        bomber = [NSEntityDescription insertNewObjectForEntityForName:@"Bomber"
-                                               inManagedObjectContext:self.managedObjectContext];
-        bomber.accessToken = theAccessToken;
-        bomber.userID = theUserID;
-        bomber.expiration = expiration;
-        bomber.squadron = self.squadron;
-    }
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        targetsViewController.bomber = bomber;
     }
 }
 
@@ -79,12 +53,6 @@
 }
 
 
-- (IBAction)addBomber:(id)sender {
-    [self.engine logIn];
-}
-
-@synthesize fetchedResultsController = _fetchedResultsController;
-
 - (NSFetchedResultsController *)fetchedResultsController
 {
     if (_fetchedResultsController) {
@@ -96,6 +64,7 @@
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"expiration" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     [fetchRequest setSortDescriptors:sortDescriptors];
+    [fetchRequest setFetchBatchSize:20];
     _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest
                                                                    managedObjectContext:self.managedObjectContext
                                                                      sectionNameKeyPath:Nil
@@ -140,7 +109,6 @@
 }
 
 
-
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -158,62 +126,39 @@
     }   
 }
 
+#pragma mark - WBDataDelegate
 
-#pragma mark - FetchedResultsController delegate
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    // The fetch controller is about to start sending change notifications, so prepare the table view for updates.
-    [self.tableView beginUpdates];
-}
-
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    
-    UITableView *tableView = self.tableView;
-    
-    switch(type) {
-            
-        case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-            break;
-            
-        case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray
-                                               arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray
-                                               arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-            break;
+- (void)saveWithAccessToken:(NSString *)theAccessToken userID:(NSString *)theUserID expiresAt:(NSDate *)expiration
+{
+    NSLog(@"save");
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Bomber"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID == %@",theUserID];
+    fetchRequest.predicate = predicate;
+    NSError *error = nil;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"%@",error);
+        abort();
+    }
+    Bomber *bomber = nil;
+    if ((bomber = [results lastObject])) {
+        bomber.accessToken = theAccessToken;
+        bomber.userID = theUserID;
+        bomber.expiration = expiration;
+    }else {
+        bomber = [NSEntityDescription insertNewObjectForEntityForName:@"Bomber"
+                                               inManagedObjectContext:self.managedObjectContext];
+        bomber.accessToken = theAccessToken;
+        bomber.userID = theUserID;
+        bomber.expiration = expiration;
+        bomber.squadron = self.squadron;
+    }
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
     }
 }
 
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-    
-    switch(type) {
-            
-        case NSFetchedResultsChangeInsert:
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case NSFetchedResultsChangeDelete:
-            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-    }
-}
-
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
-    [self.tableView endUpdates];
-}
 
 #pragma mark - WBEngin delegate
 
