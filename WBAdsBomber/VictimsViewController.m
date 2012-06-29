@@ -7,11 +7,12 @@
 //
 
 #import "VictimsViewController.h"
+#import "AppDelegate.h"
 #import "Victim.h"
 #import "Bomber.h"
 #import "Squadron.h"
 
-#define kTimeInterval 5.0
+#define kTimeInterval 10.0
 
 @interface VictimsViewController ()
 
@@ -23,6 +24,8 @@
 @synthesize bombers = _bombers;
 @synthesize engine = _engine;
 @synthesize fetchedResultsController = _fetchedResultsController;
+@synthesize image = _image;
+@synthesize handler = _handler;
 
 - (IBAction)play:(id)sender {
     [self.timer fire];
@@ -38,6 +41,12 @@
 {
     [super viewWillDisappear:animated];
     [self pause:nil];
+}
+
+- (UIImage *)image
+{
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    return appDelegate.image;
 }
 
 - (NSArray *)bombers
@@ -77,7 +86,33 @@
                                     params:params
                               postDataType:kWBRequestPostDataTypeNone
                           httpHeaderFields:nil];
-   // cursor = cursor + 50;
+}
+
+- (WBResponseHandler *)handler
+{
+    if (_handler) {
+        return _handler;
+    }
+    _handler = [[WBResponseHandler alloc]init];
+    _handler.delegate = self;
+    NSLog(@"handler");
+    return _handler;
+}
+
+- (void)sendWeiBoWithText:(NSString *)text image:(UIImage *)image
+{
+    NSLog(@"%@ %@",text,image);
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            image,@"pic",
+                            (text ? text : @""),@"status",
+                            nil];  
+    
+    [self.engine loadRequestWithMethodName:@"statuses/upload.json"
+                         httpMethod:@"POST"
+                             params:params
+                       postDataType:kWBRequestPostDataTypeMultipart
+                   httpHeaderFields:nil
+                            handler:self.handler];
 }
 
 - (void)strike:(NSTimer *)timer
@@ -101,12 +136,12 @@
         NSLog(@"%@",error);
         abort();
     }
-    NSMutableString *text = [NSMutableString string];
+    NSMutableString *text = [NSMutableString stringWithString:@"#cat#"];
     for (Victim *victim in fetchedResults) {
         [text appendFormat:@"@%@ ",victim.name];
     }
     if (text.length > 140) {
-        text = [NSMutableString string];
+        text = [NSMutableString stringWithString:@"#cat#"];
         for (Victim *victim in fetchedResults) {
             NSUInteger length = text.length + victim.name.length + 2;
             if (length > 140) {
@@ -115,7 +150,7 @@
             victim.struck = bomber;
             [text appendFormat:@"@%@ ",victim.name];
         }
-        NSLog(@"%@",text);
+        [self sendWeiBoWithText:text image:self.image];
     }else {
         predicate = [NSPredicate predicateWithFormat:@"date == nil"];
         fetchRequest.predicate = predicate;
@@ -236,8 +271,10 @@
     NSLog(@"%@",engine.request.url);
     NSLog(@"%@",error);
 }
+
 - (void)engine:(WBEngine *)engine requestDidSucceedWithResult:(id)result
 {
+    //NSLog(@"%@",result);
     NSArray *users = [result objectForKey:@"users"];
     NSError *error = nil;
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Victim"];
@@ -262,5 +299,18 @@
         victim.userID = uid;
     }
 }
+
+#pragma mark - WBresponse delegate
+
+- (void)handleRequest:(WBRequest *)request withResult:(id)result
+{
+    NSLog(@"%@",result);
+}
+
+- (void)handleRequest:(WBRequest *)request withError:(NSError *)error
+{
+    NSLog(@"%@",error);
+}
+
 
 @end

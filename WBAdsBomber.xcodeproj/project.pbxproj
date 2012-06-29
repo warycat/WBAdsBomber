@@ -66,6 +66,8 @@
 		46B1475F1594A610002B0697 /* TargetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B1475E1594A610002B0697 /* TargetsViewController.m */; };
 		46B147661596E212002B0697 /* VictimsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B147651596E212002B0697 /* VictimsViewController.m */; };
 		46B147691596F783002B0697 /* Victim.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B147681596F783002B0697 /* Victim.m */; };
+		46E5FB2C15995AF8004ABC94 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E5FB2B15995AF8004ABC94 /* ImageViewController.m */; };
+		46E5FB2F159AEE54004ABC94 /* WBResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E5FB2E159AEE54004ABC94 /* WBResponseHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +176,10 @@
 		46B147651596E212002B0697 /* VictimsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VictimsViewController.m; sourceTree = "<group>"; };
 		46B147671596F782002B0697 /* Victim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Victim.h; sourceTree = "<group>"; };
 		46B147681596F783002B0697 /* Victim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Victim.m; sourceTree = "<group>"; };
+		46E5FB2A15995AF8004ABC94 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		46E5FB2B15995AF8004ABC94 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		46E5FB2D159AEE53004ABC94 /* WBResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBResponseHandler.h; sourceTree = "<group>"; };
+		46E5FB2E159AEE54004ABC94 /* WBResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBResponseHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +244,8 @@
 		460EE16B1590406D009F8ACA /* WBAdsBomber */ = {
 			isa = PBXGroup;
 			children = (
+				46E5FB2D159AEE53004ABC94 /* WBResponseHandler.h */,
+				46E5FB2E159AEE54004ABC94 /* WBResponseHandler.m */,
 				46B1475A1594703B002B0697 /* YYWBEngine.h */,
 				46B1475B1594703B002B0697 /* YYWBEngine.m */,
 				46B147671596F782002B0697 /* Victim.h */,
@@ -260,9 +268,11 @@
 				460EE20C15916497009F8ACA /* SquadronsViewController.m */,
 				460EE1801590406D009F8ACA /* MainViewController.h */,
 				460EE1811590406D009F8ACA /* MainViewController.m */,
-				460EE1A81590447D009F8ACA /* SinaWeiBoSDK */,
+				46E5FB2A15995AF8004ABC94 /* ImageViewController.h */,
+				46E5FB2B15995AF8004ABC94 /* ImageViewController.m */,
 				460EE1741590406D009F8ACA /* AppDelegate.h */,
 				460EE1751590406D009F8ACA /* AppDelegate.m */,
+				460EE1A81590447D009F8ACA /* SinaWeiBoSDK */,
 				460EE1771590406D009F8ACA /* MainStoryboard_iPhone.storyboard */,
 				460EE17A1590406D009F8ACA /* MainStoryboard_iPad.storyboard */,
 				460EE1831590406D009F8ACA /* FlipsideViewController.h */,
@@ -552,6 +562,8 @@
 				46B1475F1594A610002B0697 /* TargetsViewController.m in Sources */,
 				46B147661596E212002B0697 /* VictimsViewController.m in Sources */,
 				46B147691596F783002B0697 /* Victim.m in Sources */,
+				46E5FB2C15995AF8004ABC94 /* ImageViewController.m in Sources */,
+				46E5FB2F159AEE54004ABC94 /* WBResponseHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

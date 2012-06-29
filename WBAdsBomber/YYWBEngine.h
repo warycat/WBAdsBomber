@@ -16,4 +16,10 @@
 
 @property (weak, nonatomic) id<WBDataDelegate> dataDelegate;
 - (void)setAuthorizeDataWithAccessToken:(NSString *)theAccessToken userID:(NSString *)theUserID expiresAt:(NSDate *)expiration;
+- (void)loadRequestWithMethodName:(NSString *)methodName
+                       httpMethod:(NSString *)httpMethod
+                           params:(NSDictionary *)params
+                     postDataType:(WBRequestPostDataType)postDataType
+                 httpHeaderFields:(NSDictionary *)httpHeaderFields 
+                          handler:(id<WBRequestDelegate>)handler;
 @end

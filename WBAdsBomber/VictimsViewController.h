@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "FetchedResultsViewController.h"
 #import "YYWBEngine.h"
+#import "WBResponseHandler.h"
 
-@interface VictimsViewController : FetchedResultsViewController <WBEngineDelegate>
+@interface VictimsViewController : FetchedResultsViewController <WBEngineDelegate,WBResponseDelegate>
 
 @property (strong, nonatomic)NSTimer *timer;
 @property (strong, nonatomic)NSArray *bombers;
 @property (strong, nonatomic)YYWBEngine *engine;
+@property (strong, nonatomic)UIImage *image;
+@property (strong, nonatomic)WBResponseHandler *handler;
 
 @end

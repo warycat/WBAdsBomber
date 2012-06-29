@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "AppDelegate.h"
 #import "Victim.h"
+#import "ImageViewController.h"
 
 @interface MainViewController ()
 
@@ -124,6 +125,33 @@
     } else {
         [self performSegueWithIdentifier:@"showAlternate" sender:sender];
     }
+}
+
+#pragma mark - UIImagePickerController Delegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
+    ImageViewController *imageViewController = [storyboard instantiateViewControllerWithIdentifier:@"ImageViewController"];
+    [self.imagePickerController pushViewController:imageViewController animated:YES];
+    imageViewController.imageView.image = image;
+    imageViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneWithImage:)];
+}
+
+- (void)doneWithImage:(id)sender
+{
+    NSLog(@"%@",sender);
+    ImageViewController *imageViewController = (ImageViewController *)self.imagePickerController.topViewController;
+    self.imageView.image = imageViewController.imageView.image;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate.image = imageViewController.imageView.image;
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

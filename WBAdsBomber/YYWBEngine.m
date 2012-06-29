@@ -7,6 +7,7 @@
 //
 
 #import "YYWBEngine.h"
+#import "WBSDKGlobal.h"
 
 @implementation YYWBEngine
 @synthesize dataDelegate = _dataDelegate;
@@ -69,6 +70,49 @@
     self.accessToken = theAccessToken;
     self.userID = theUserID;
     self.expireTime = [expiration timeIntervalSince1970];
+}
+
+
+- (void)loadRequestWithMethodName:(NSString *)methodName
+                       httpMethod:(NSString *)httpMethod
+                           params:(NSDictionary *)params
+                     postDataType:(WBRequestPostDataType)postDataType
+                 httpHeaderFields:(NSDictionary *)httpHeaderFields
+                          handler:(id<WBRequestDelegate>)handler
+{
+    // Step 1.
+    // Check if the user has been logged in.
+	if (![self isLoggedIn])
+	{
+        if ([delegate respondsToSelector:@selector(engineNotAuthorized:)])
+        {
+            [delegate engineNotAuthorized:self];
+        }
+        return;
+	}
+    
+	// Step 2.
+    // Check if the access token is expired.
+    if ([self isAuthorizeExpired])
+    {
+        if ([delegate respondsToSelector:@selector(engineAuthorizeExpired:)])
+        {
+            [delegate engineAuthorizeExpired:self];
+        }
+        return;
+    }
+    
+    [request disconnect];
+    
+    self.request = [WBRequest requestWithAccessToken:accessToken
+                                                 url:[NSString stringWithFormat:@"%@%@", kWBSDKAPIDomain, methodName]
+                                          httpMethod:httpMethod
+                                              params:params
+                                        postDataType:postDataType
+                                    httpHeaderFields:httpHeaderFields
+                                            delegate:handler];
+	
+	[request connect];
 }
 
 - (void)saveAuthorizeDataToKeychain
