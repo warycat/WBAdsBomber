@@ -17,6 +17,7 @@
 @property (strong, nonatomic)NSArray *bombers;
 @property (strong, nonatomic)YYWBEngine *engine;
 @property (strong, nonatomic)UIImage *image;
+@property (strong, nonatomic)NSString *url;
 @property (strong, nonatomic)WBResponseHandler *handler;
 
 @end

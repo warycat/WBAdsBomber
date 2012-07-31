@@ -67,11 +67,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BomberCell" textLabel="Dj9-a8-y6H" detailTextLabel="Eys-eP-V5h" style="IBUITableViewCellStyleSubtitle" id="y2O-Cy-14o">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BomberCell" textLabel="Dj9-a8-y6H" detailTextLabel="Eys-eP-V5h" style="IBUITableViewCellStyleSubtitle" id="y2O-Cy-14o">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dj9-a8-y6H">
@@ -108,6 +108,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="EhR-z8-tIA" kind="push" identifier="DetailSegue" id="MIZ-G6-JkR"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1556" y="-226"/>
@@ -268,6 +271,31 @@
             </objects>
             <point key="canvasLocation" x="1556" y="-827"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="5hR-b0-jtp">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FeS-Uk-VYT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="EhR-z8-tIA" customClass="DetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zxc-4A-to6">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" id="h0O-aP-CJj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wb8-pd-2OZ"/>
+                    <connections>
+                        <outlet property="webView" destination="h0O-aP-CJj" id="B4J-7V-CHa"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1973" y="-816"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="mi0-YP-YwE">
             <objects>
@@ -295,9 +323,13 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="wKD-ah-4gb">
+                            <imageView contentMode="scaleAspectFill" id="wKD-ah-4gb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="mFW-Mm-jul" appends="YES" id="5Uj-b4-Fze"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="10">
                                 <rect key="frame" x="282" y="328" width="18" height="19"/>
@@ -316,16 +348,20 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="mFW-Mm-jul" appends="YES" id="KTo-0S-yCY"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="WBAdsBomber" id="nx2-WH-0hW">
-                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="c0z-4T-Dtu">
-                            <connections>
-                                <action selector="selectImage:" destination="2" id="qUe-79-una"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="HUM-t9-0uA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="HUM-t9-0uA">
                             <connections>
                                 <action selector="deleteVictims:" destination="2" id="Wqs-Q7-UpC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="UDR-Vb-Nh1">
+                            <connections>
+                                <segue destination="VWS-Qb-FT4" kind="push" id="C5R-5C-P1P"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -333,6 +369,11 @@
                         <outlet property="imageView" destination="wKD-ah-4gb" id="jdo-3V-vqe"/>
                     </connections>
                 </viewController>
+                <tapGestureRecognizer id="mFW-Mm-jul">
+                    <connections>
+                        <action selector="selectImage:" destination="2" id="j8M-Dq-kOB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1133" y="370"/>
         </scene>
@@ -363,7 +404,7 @@
                     </view>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1556" y="370"/>
+            <point key="canvasLocation" x="1973" y="370"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="z01-dC-SKB">
@@ -387,6 +428,56 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1133" y="952"/>
+        </scene>
+        <!--View Controller - URL-->
+        <scene sceneID="s3L-qd-UWe">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9wR-7e-g0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="VWS-Qb-FT4" customClass="URLViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tkI-gp-3AE">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Ox9-la-Nx8">
+                                <rect key="frame" x="72" y="20" width="228" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="VWS-Qb-FT4" id="UO6-fd-Z1v"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="http://" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="NCw-7u-YPc">
+                                <rect key="frame" x="20" y="25" width="44" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="http://" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2Mw-gz-VRj">
+                                <rect key="frame" x="20" y="59" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="URL" id="17n-XW-3bs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="amW-uG-UIz">
+                            <connections>
+                                <action selector="deleteURL:" destination="VWS-Qb-FT4" id="T8I-Rl-ACq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="LongTextField" destination="Ox9-la-Nx8" id="IA4-wg-NPB"/>
+                        <outlet property="ShortLabel" destination="2Mw-gz-VRj" id="X18-76-Jxb"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1556" y="370"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0PV-HB-V8h">
@@ -430,48 +521,6 @@
             <point key="canvasLocation" x="28" y="-226"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BombersViewController" superclassName="FetchedResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BombersViewController.h"/>
-        </class>
-        <class className="CreateSquadronViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateSquadronViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="keyTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="secretTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="FetchedResultsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FetchedResultsViewController.h"/>
-        </class>
-        <class className="FlipsideViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlipsideViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-            </relationships>
-        </class>
-        <class className="ImageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="SquadronsViewController" superclassName="FetchedResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SquadronsViewController.h"/>
-        </class>
-        <class className="TargetsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TargetsViewController.h"/>
-        </class>
-        <class className="VictimsViewController" superclassName="FetchedResultsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VictimsViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

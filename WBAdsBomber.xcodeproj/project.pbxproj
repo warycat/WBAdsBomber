@@ -61,6 +61,8 @@
 		460EE210159170DB009F8ACA /* Squadron.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE20F159170DA009F8ACA /* Squadron.m */; };
 		460EE21B1591A19F009F8ACA /* BombersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE21A1591A19D009F8ACA /* BombersViewController.m */; };
 		460EE21E1591A30F009F8ACA /* FetchedResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 460EE21D1591A30E009F8ACA /* FetchedResultsViewController.m */; };
+		468AFB4715A3ED1B006738D9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 468AFB4615A3ED1B006738D9 /* DetailViewController.m */; };
+		46AD492D15A181FB00F5E2D1 /* URLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AD492C15A181FB00F5E2D1 /* URLViewController.m */; };
 		46B14759159460A9002B0697 /* Bomber.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B14758159460A9002B0697 /* Bomber.m */; };
 		46B1475C1594703B002B0697 /* YYWBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B1475B1594703B002B0697 /* YYWBEngine.m */; };
 		46B1475F1594A610002B0697 /* TargetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B1475E1594A610002B0697 /* TargetsViewController.m */; };
@@ -166,6 +168,10 @@
 		460EE21A1591A19D009F8ACA /* BombersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BombersViewController.m; sourceTree = "<group>"; };
 		460EE21C1591A30D009F8ACA /* FetchedResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchedResultsViewController.h; sourceTree = "<group>"; };
 		460EE21D1591A30E009F8ACA /* FetchedResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchedResultsViewController.m; sourceTree = "<group>"; };
+		468AFB4515A3ED1B006738D9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		468AFB4615A3ED1B006738D9 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		46AD492B15A181FB00F5E2D1 /* URLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLViewController.h; sourceTree = "<group>"; };
+		46AD492C15A181FB00F5E2D1 /* URLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLViewController.m; sourceTree = "<group>"; };
 		46B14757159460A8002B0697 /* Bomber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bomber.h; sourceTree = "<group>"; };
 		46B14758159460A9002B0697 /* Bomber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bomber.m; sourceTree = "<group>"; };
 		46B1475A1594703B002B0697 /* YYWBEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWBEngine.h; sourceTree = "<group>"; };
@@ -254,6 +260,8 @@
 				46B14758159460A9002B0697 /* Bomber.m */,
 				460EE20E159170D9009F8ACA /* Squadron.h */,
 				460EE20F159170DA009F8ACA /* Squadron.m */,
+				468AFB4515A3ED1B006738D9 /* DetailViewController.h */,
+				468AFB4615A3ED1B006738D9 /* DetailViewController.m */,
 				460EE20815915F85009F8ACA /* CreateSquadronViewController.h */,
 				460EE20915915F86009F8ACA /* CreateSquadronViewController.m */,
 				460EE21C1591A30D009F8ACA /* FetchedResultsViewController.h */,
@@ -270,6 +278,8 @@
 				460EE1811590406D009F8ACA /* MainViewController.m */,
 				46E5FB2A15995AF8004ABC94 /* ImageViewController.h */,
 				46E5FB2B15995AF8004ABC94 /* ImageViewController.m */,
+				46AD492B15A181FB00F5E2D1 /* URLViewController.h */,
+				46AD492C15A181FB00F5E2D1 /* URLViewController.m */,
 				460EE1741590406D009F8ACA /* AppDelegate.h */,
 				460EE1751590406D009F8ACA /* AppDelegate.m */,
 				460EE1A81590447D009F8ACA /* SinaWeiBoSDK */,
@@ -564,6 +574,8 @@
 				46B147691596F783002B0697 /* Victim.m in Sources */,
 				46E5FB2C15995AF8004ABC94 /* ImageViewController.m in Sources */,
 				46E5FB2F159AEE54004ABC94 /* WBResponseHandler.m in Sources */,
+				46AD492D15A181FB00F5E2D1 /* URLViewController.m in Sources */,
+				468AFB4715A3ED1B006738D9 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

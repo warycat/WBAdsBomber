@@ -18,6 +18,7 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
 @synthesize image = _image;
+@synthesize short_url = _short_url;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

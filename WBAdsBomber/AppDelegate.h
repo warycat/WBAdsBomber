@@ -17,6 +17,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) NSString *short_url;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

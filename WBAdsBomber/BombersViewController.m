@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Bomber.h"
 #import "TargetsViewController.h"
+#import "DetailViewController.h"
 
 @interface BombersViewController ()
 
@@ -37,6 +38,15 @@
         engine.delegate = segue.destinationViewController;
         targetsViewController.engine = engine;
         targetsViewController.bomber = bomber;
+    }
+    
+    if ([segue.identifier isEqualToString:@"DetailSegue"]) {
+        NSLog(@"DetailSegue");
+
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Bomber *bomber = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        DetailViewController *detailViewController = segue.destinationViewController;
+        detailViewController.userID = bomber.userID;
     }
 }
 
@@ -108,6 +118,10 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"DetailSegue" sender:[tableView cellForRowAtIndexPath:indexPath]];
+}
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

@@ -12,7 +12,7 @@
 #import "Bomber.h"
 #import "Squadron.h"
 
-#define kTimeInterval 10.0
+#define kTimeInterval 120.0
 
 @interface VictimsViewController ()
 
@@ -25,6 +25,7 @@
 @synthesize engine = _engine;
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize image = _image;
+@synthesize url = _url;
 @synthesize handler = _handler;
 
 - (IBAction)play:(id)sender {
@@ -47,6 +48,16 @@
 {
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     return appDelegate.image;
+}
+
+- (NSString *)url
+{
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    if (appDelegate.short_url) {
+        return [NSString stringWithFormat:@"%@ ",appDelegate.short_url];
+    }
+    return @"";
+
 }
 
 - (NSArray *)bombers
@@ -136,12 +147,12 @@
         NSLog(@"%@",error);
         abort();
     }
-    NSMutableString *text = [NSMutableString stringWithString:@"#cat#"];
+    NSMutableString *text = [NSMutableString stringWithString:self.url];
     for (Victim *victim in fetchedResults) {
         [text appendFormat:@"@%@ ",victim.name];
     }
     if (text.length > 140) {
-        text = [NSMutableString stringWithString:@"#cat#"];
+        text = [NSMutableString stringWithString:self.url];
         for (Victim *victim in fetchedResults) {
             NSUInteger length = text.length + victim.name.length + 2;
             if (length > 140) {
@@ -304,7 +315,7 @@
 
 - (void)handleRequest:(WBRequest *)request withResult:(id)result
 {
-    NSLog(@"%@",result);
+   // NSLog(@"%@",result);
 }
 
 - (void)handleRequest:(WBRequest *)request withError:(NSError *)error
